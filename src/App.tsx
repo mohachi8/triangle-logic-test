@@ -23,7 +23,7 @@ function App() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            学習アプリ
+            三角ロジック
           </Typography>
         </Toolbar>
       </AppBar>
