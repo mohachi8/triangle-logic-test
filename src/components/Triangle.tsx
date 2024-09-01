@@ -1,17 +1,21 @@
-// src/components/Triangle.tsx
+import React from "react";
+import { Box } from "@mui/material";
 
-import React from 'react';
-import { Box } from '@mui/material';
+interface TriangleProps {
+  sizeVW: number; // 三角形の大きさ
+  color: string; // 三角形のカラー
+}
 
-const Triangle: React.FC = () => {
+// 三角形を描画
+const Triangle: React.FC<TriangleProps> = ({ sizeVW, color }) => {
   return (
     <Box
       sx={{
         width: 0,
         height: 0,
-        borderLeft: '50px solid transparent',
-        borderRight: '50px solid transparent',
-        borderBottom: '100px solid #808080',  // 三角形の色を指定
+        borderLeft: `${sizeVW / 2}vw solid transparent`,
+        borderRight: `${sizeVW / 2}vw solid transparent`,
+        borderBottom: `${sizeVW}vw solid ${color}`,
       }}
     />
   );

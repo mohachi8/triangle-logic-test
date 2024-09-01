@@ -1,7 +1,7 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import "./App.css";
-import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
-import LabeledTriangle from "./components/LabeledTriangle";
+import CssBaseline from "@mui/material/CssBaseline";
+import Header from "./components/Header";
+import Triangle from "./components/Triangle";
 
 const theme = createTheme({
   palette: {
@@ -19,17 +19,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* トップバー */}
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            三角ロジック
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      {/* ヘッダー */}
+      <Header />
       {/* コンテンツ */}
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <LabeledTriangle />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center", // 中央揃えにする
+          width: "100%", // 全幅を使用
+          padding: "20px", // 任意のパディング
+        }}
+      >
+        <Triangle sizeVW={70} color="#808080" /> {/* 三角形を表示 */}
       </div>
     </ThemeProvider>
   );
