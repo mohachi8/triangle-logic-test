@@ -12,7 +12,7 @@ const LabeledTriangle: React.FC = () => {
           width: 0,
           height: 0,
           borderLeft: '100px solid transparent',
-          borderRight: '100px solid transparent',
+          borderRight: '100px solid transparent', 
           borderBottom: '200px solid #1976d2', // 三角形の色
           position: 'absolute',
           bottom: 0,
