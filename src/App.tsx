@@ -36,7 +36,7 @@ function App() {
           以下の命題から三角ロジックを組み立てなさい。
         </Typography>
         {/* <Triangle sizeVW={60} color="#808080" /> 三角形を表示 */}
-        <LabeledTriangle sizeVW={60} color="#808080" maxWidthVW={110} />
+        <LabeledTriangle sizeVW={40} color="#808080" />
       </div>
     </ThemeProvider>
   );
