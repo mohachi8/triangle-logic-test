@@ -1,77 +1,76 @@
-import React from "react";
-import { Box, Button } from "@mui/material";
-import Triangle from "./Triangle";
+import React from 'react';
+import { Box } from '@mui/material';
+import Triangle from './Triangle';
+import LabeledCard from './LabeledCard';
 
 interface LabeledTriangleProps {
   sizeVW: number; // 三角形の大きさ
   color: string; // 三角形のカラー
+  maxWidthVW?: number; // 三角形の最大横幅
 }
 
-const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
+const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color, maxWidthVW }) => {
+  // 実際の三角形のサイズを計算する
+  const triangleSizeVW = maxWidthVW ? Math.min(sizeVW, maxWidthVW) : sizeVW;
+
   return (
     <Box
       sx={{
-        position: "relative", // 親ボックスを相対配置にする
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%", // 全幅を使用
-        height: `calc(${sizeVW}vw + 100px)`, // 三角形の高さより少し大きく設定
-        overflow: "hidden", // ボタンがはみ出さないようにする
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: `calc(${triangleSizeVW}vw + 100px)`, // 三角形の高さより少し大きく設定
+        overflow: 'hidden',
       }}
     >
       {/* 内側のコンテナ */}
       <Box
         sx={{
-          position: "relative",
-          width: `${sizeVW}vw`,
-          height: `${sizeVW}vw`,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          position: 'relative',
+          width: `${triangleSizeVW}vw`,
+          height: `${triangleSizeVW}vw`,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         {/* 三角形の描画 */}
-        <Triangle sizeVW={sizeVW} color={color} />
+        <Triangle sizeVW={triangleSizeVW} color={color} />
 
-        {/* 上頂点のボタン */}
-        <Button
-          variant="contained"
-          sx={{
-            position: "absolute",
-            top: `-${sizeVW / 20}vw`, // 値を調整してボタンを三角形の頂点に寄せる
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+        {/* 上頂点のカード */}
+        <LabeledCard
+          text="結論"
+          positionStyles={{
+            top: `-${triangleSizeVW / 20}vw`,
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
           }}
-        >
-          結論
-        </Button>
+          backgroundColor="#f44336"
+        />
 
-        {/* 左下頂点のボタン */}
-        <Button
-          variant="contained"
-          sx={{
-            position: "absolute",
-            bottom: `-${sizeVW / 20}vw`, // 値を調整してボタンを三角形の頂点に寄せる
-            left: `calc(50% - ${sizeVW / 2}vw)`, // 三角形の幅の50% - ボタンサイズの調整
-            transform: "translate(-50%, 50%)",
+        {/* 左下頂点のカード */}
+        <LabeledCard
+          text="根拠"
+          positionStyles={{
+            bottom: `-${triangleSizeVW / 20}vw`,
+            left: `calc(50% - ${triangleSizeVW / 2}vw)`,
+            transform: 'translate(-50%, 50%)',
           }}
-        >
-          根拠
-        </Button>
+          backgroundColor="#4caf50"
+        />
 
-        {/* 右下頂点のボタン */}
-        <Button
-          variant="contained"
-          sx={{
-            position: "absolute",
-            bottom: `-${sizeVW / 20}vw`, // 値を調整してボタンを三角形の頂点に寄せる
-            right: `calc(50% - ${sizeVW / 2}vw)`, // 三角形の幅の50% - ボタンサイズの調整
-            transform: "translate(50%, 50%)",
+        {/* 右下頂点のカード */}
+        <LabeledCard
+          text="論拠"
+          positionStyles={{
+            bottom: `-${triangleSizeVW / 20}vw`,
+            right: `calc(50% - ${triangleSizeVW / 2}vw)`,
+            transform: 'translate(50%, 50%)',
           }}
-        >
-          論拠
-        </Button>
+          backgroundColor="#2196f3"
+        />
       </Box>
     </Box>
   );
