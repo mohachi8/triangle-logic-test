@@ -43,7 +43,8 @@ const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
           }}
-          backgroundColor="#f44336" // 赤色の背景
+          backgroundColor="#2196f3" // 青色の背景
+
         />
 
         {/* 左下頂点のカード */}
@@ -54,7 +55,7 @@ const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
             left: `calc(50% - ${sizeVW / 2}vw)`,
             transform: 'translate(-50%, 50%)',
           }}
-          backgroundColor="#4caf50" // 緑色の背景
+          backgroundColor="#f44336" // 赤色の背景
         />
 
         {/* 右下頂点のカード */}
@@ -65,7 +66,7 @@ const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
             right: `calc(50% - ${sizeVW / 2}vw)`,
             transform: 'translate(50%, 50%)',
           }}
-          backgroundColor="#2196f3" // 青色の背景
+          backgroundColor="#4caf50" // 緑色の背景
         />
       </Box>
     </Box>
