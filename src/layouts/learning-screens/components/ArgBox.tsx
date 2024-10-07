@@ -5,9 +5,7 @@ function ArgBox({ argumentation }: { argumentation: string }) {
   return (
     <Box
       sx={{
-        backgroundColor: "lightblue", // 背景色
-        border: "2px solid black", // 枠線（太さと色）
-        borderRadius: "8px", // 角を丸くする（オプション）
+        border: "1px solid black", // 枠線（太さと色）
         padding: "16px", // 内側の余白
         margin: "16px", // 外側の余白
       }}

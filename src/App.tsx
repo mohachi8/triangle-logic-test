@@ -19,10 +19,23 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
       {/* ヘッダー */}
       <Header />
+
       {/* コンテンツ */}
-      <Step1 />
+      <div
+        style={{
+          display: "flex", // Flexboxを使用
+          flexDirection: "column", // 子要素を縦に並べる
+          alignItems: "center", // 子要素を中央揃えにする
+          width: "100%", // 全幅を使用
+          paddingTop: "20px", // 任意のパディング
+          // backgroundColor: "red"
+        }}
+      >
+        <Step1 />
+      </div>
     </ThemeProvider>
   );
 }

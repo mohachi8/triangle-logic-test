@@ -1,43 +1,27 @@
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  styled,
-  Typography,
-} from "@mui/material";
-import React from "react";
+import { Button } from "@mui/material";
 import ArgBox from "../components/ArgBox";
 import ProblemBox from "../components/ProblemBox";
-
-const GradientBox = styled(Box)({
-  padding: "10px",
-  display: "flex",
-  alignItems: "center",
-});
+import PropositionBox from "../components/PropositionBox";
 
 function Step1() {
-  const [firstValue, setFirstValue] = React.useState("");
-  const [secondValue, setSecondValue] = React.useState("");
-
   // 論証
   const argumentation: string =
-    "「植物は光合成を行う．光合成を行うならば野菜であるので，植物は野菜である．」";
+    "「ダイヤモンドは高価である．宝石は高価なのでダイヤモンドは宝石である．」";
 
   const step: number = 1;
   const sentence: string = "この論証に使われている命題を選んでください．";
+  const options = [
+    { value: 10, label: "ダイヤモンドである" },
+    { value: 20, label: "ダイヤモンドではない" },
+    { value: 30, label: "宝石である" },
+    { value: 40, label: "宝石でない" },
+    { value: 50, label: "高価である" },
+    { value: 60, label: "高価でない" },
+  ];
 
-  const handleFirstChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setFirstValue(event.target.value);
-  };
-
-  const handleSecondChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => {
-    setSecondValue(event.target.value);
+  const handleClick = () => {
+    console.log("次へボタンがクリックされました");
+    // ここに次のステップへの処理を追加
   };
 
   return (
@@ -45,9 +29,8 @@ function Step1() {
       style={{
         display: "flex", // Flexboxを使用
         flexDirection: "column", // 子要素を縦に並べる
-        // alignItems: "center", // 子要素を中央揃えにする
-        width: "100%", // 全幅を使用
         padding: "20px", // 任意のパディング
+        // backgroundColor: "lightgray"
       }}
     >
       {/* 論証 */}
@@ -56,38 +39,22 @@ function Step1() {
       {/* 問題文 */}
       <ProblemBox step={step} sentence={sentence} />
 
-      <GradientBox>
-        <Typography sx={{ marginX: 2 }}>命題1</Typography>
-        <FormControl variant="outlined" sx={{ minWidth: 120, marginRight: 2 }}>
-          <InputLabel>選択</InputLabel>
-          <Select value={firstValue} onChange={handleFirstChange} label="命題1">
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Option 1</MenuItem>
-            <MenuItem value={20}>Option 2</MenuItem>
-            <MenuItem value={30}>Option 3</MenuItem>
-          </Select>
-        </FormControl>
+      {/* 命題1 */}
+      <PropositionBox items={options} />
 
-        <Typography sx={{ marginX: 2 }}>ならば</Typography>
+      {/* 命題2 */}
+      <PropositionBox items={options} />
 
-        <FormControl variant="outlined" sx={{ minWidth: 120, marginLeft: 2 }}>
-          <InputLabel>選択</InputLabel>
-          <Select
-            value={secondValue}
-            onChange={handleSecondChange}
-            label="命題2"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Option A</MenuItem>
-            <MenuItem value={20}>Option B</MenuItem>
-            <MenuItem value={30}>Option C</MenuItem>
-          </Select>
-        </FormControl>
-      </GradientBox>
+      {/* 命題3 */}
+      <PropositionBox items={options} />
+
+      <Button
+        variant="contained" // ボタンのスタイル（塗りつぶし）
+        color="primary" // ボタンの色
+        onClick={handleClick} // クリックイベント
+      >
+        次へ
+      </Button>
     </div>
   );
 }
