@@ -8,7 +8,12 @@ import {
 } from "@mui/material";
 import React from "react";
 
-function PropositionBox({ items }: { items: { value: number; label: string }[] }) {
+// 与えられた論証から命題を作成するBox
+function PropositionBox({
+  items,
+}: {
+  items: { value: number; label: string }[];
+}) {
   const [firstValue, setFirstValue] = React.useState("");
   const [secondValue, setSecondValue] = React.useState("");
 
@@ -33,11 +38,13 @@ function PropositionBox({ items }: { items: { value: number; label: string }[] }
       }}
     >
       <Typography sx={{ marginX: 2 }}>命題</Typography>
+
+      {/* 前件を選択 */}
       <FormControl variant="outlined" sx={{ minWidth: 120, marginRight: 2 }}>
         <InputLabel>選択</InputLabel>
         <Select value={firstValue} onChange={handleFirstChange} label="命題1">
           <MenuItem value="">
-            <em>None</em>
+            <em>--</em>
           </MenuItem>
           {items.map((item) => (
             <MenuItem key={item.value} value={item.value}>
@@ -47,14 +54,14 @@ function PropositionBox({ items }: { items: { value: number; label: string }[] }
         </Select>
       </FormControl>
 
-
       <Typography sx={{ marginX: 2 }}>ならば</Typography>
 
+      {/* 後件を選択 */}
       <FormControl variant="outlined" sx={{ minWidth: 120, marginLeft: 2 }}>
         <InputLabel>選択</InputLabel>
         <Select value={secondValue} onChange={handleSecondChange} label="命題2">
           <MenuItem value="">
-            <em>None</em>
+            <em>--</em>
           </MenuItem>
           {items.map((item) => (
             <MenuItem key={item.value} value={item.value}>

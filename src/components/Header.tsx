@@ -4,8 +4,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import Brightness4Icon from "@mui/icons-material/Brightness4"; // ライトモードアイコン
+import Brightness7Icon from "@mui/icons-material/Brightness7"; // ダークモードアイコン
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onToggleTheme: () => void;
+  isDarkMode: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ onToggleTheme, isDarkMode }) => {
   return (
     <AppBar position="static">
       <Toolbar>
@@ -21,6 +28,15 @@ const Header: React.FC = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Logic Triangle Block
         </Typography>
+        {/* テーマ切り替えボタン */}
+        <IconButton
+          size="large"
+          color="inherit"
+          onClick={onToggleTheme}
+          aria-label="toggle theme"
+        >
+          {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
       </Toolbar>
     </AppBar>
   );

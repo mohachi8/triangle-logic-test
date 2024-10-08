@@ -8,8 +8,10 @@ function Step1() {
   const argumentation: string =
     "「ダイヤモンドは高価である．宝石は高価なのでダイヤモンドは宝石である．」";
 
+  // 問題
   const step: number = 1;
-  const sentence: string = "この論証に使われている命題を選んでください．";
+  const sentence: string = "以下の論証に使われている命題を選んでください．";
+
   const options = [
     { value: 10, label: "ダイヤモンドである" },
     { value: 20, label: "ダイヤモンドではない" },
@@ -27,18 +29,18 @@ function Step1() {
   return (
     <div
       style={{
-        display: "flex", // Flexboxを使用
-        flexDirection: "column", // 子要素を縦に並べる
-        padding: "20px", // 任意のパディング
-        // backgroundColor: "lightgray"
+        display: "flex",
+        flexDirection: "column",
+        padding: "20px",
       }}
     >
-      {/* 論証 */}
-      <ArgBox argumentation={argumentation} />
-
       {/* 問題文 */}
       <ProblemBox step={step} sentence={sentence} />
 
+      {/* 論証 */}
+      <ArgBox argumentation={argumentation} />
+
+      {/* 命題の組み立て */}
       {/* 命題1 */}
       <PropositionBox items={options} />
 
@@ -48,11 +50,7 @@ function Step1() {
       {/* 命題3 */}
       <PropositionBox items={options} />
 
-      <Button
-        variant="contained" // ボタンのスタイル（塗りつぶし）
-        color="primary" // ボタンの色
-        onClick={handleClick} // クリックイベント
-      >
+      <Button variant="contained" color="primary" onClick={handleClick}>
         次へ
       </Button>
     </div>
