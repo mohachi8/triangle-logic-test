@@ -55,17 +55,7 @@ function App() {
       {/* ヘッダー */}
       <Header onToggleTheme={toggleTheme} isDarkMode={prefersDarkMode} />
       {/* コンテンツ */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "100%",
-          paddingTop: "20px",
-        }}
-      >
-        <Step1 />
-      </div>
+      <Step2 />
     </ThemeProvider>
   );
 }

@@ -5,6 +5,7 @@ import {
   MenuItem,
   Select,
   Typography,
+  //   useTheme,
 } from "@mui/material";
 import React from "react";
 
@@ -14,6 +15,7 @@ function PropositionBox({
 }: {
   items: { value: number; label: string }[];
 }) {
+  //   const theme = useTheme();
   const [firstValue, setFirstValue] = React.useState("");
   const [secondValue, setSecondValue] = React.useState("");
 
@@ -34,11 +36,12 @@ function PropositionBox({
       sx={{
         display: "flex",
         alignItems: "center",
-        margin: "16px",
+        padding: "8px",
+        margin: "8px",
+        // border: `1px solid  ${theme.palette.divider}`,
+        width: "fit-content",
       }}
     >
-      <Typography sx={{ marginX: 2 }}>命題</Typography>
-
       {/* 前件を選択 */}
       <FormControl variant="outlined" sx={{ minWidth: 120, marginRight: 2 }}>
         <InputLabel>選択</InputLabel>

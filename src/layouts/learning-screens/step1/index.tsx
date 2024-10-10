@@ -27,32 +27,51 @@ function Step1() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: "20px",
-      }}
-    >
+    <div>
       {/* 問題文 */}
       <ProblemBox step={step} sentence={sentence} />
+      <div
+        style={{
+          // background: "red",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <div
+          style={{
+            // background: "blue",
+            display: "flex",
+            flexDirection: "column",
+            padding: "20px",
+          }}
+        >
+          {/* 論証 */}
+          <ArgBox argumentation={argumentation} />
 
-      {/* 論証 */}
-      <ArgBox argumentation={argumentation} />
+          {/* 命題の組み立て */}
+          {/* 命題1 */}
+          <PropositionBox items={options} />
 
-      {/* 命題の組み立て */}
-      {/* 命題1 */}
-      <PropositionBox items={options} />
+          {/* 命題2 */}
+          <PropositionBox items={options} />
 
-      {/* 命題2 */}
-      <PropositionBox items={options} />
+          {/* 命題3 */}
+          <PropositionBox items={options} />
 
-      {/* 命題3 */}
-      <PropositionBox items={options} />
-
-      <Button variant="contained" color="primary" onClick={handleClick}>
-        次へ
-      </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClick}
+            sx={{
+              width: "fit-content",
+            }}
+          >
+            次へ
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
