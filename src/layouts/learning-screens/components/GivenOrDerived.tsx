@@ -24,7 +24,10 @@ function GivenOrDerived({ proposition }: { proposition: string }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "16px",
+          padding: "8px",
+          margin: "8px",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
         }}
       >
         <Typography variant="h6" component="div">
