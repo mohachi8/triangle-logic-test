@@ -1,61 +1,46 @@
-import { useState, useMemo, useEffect } from "react";
+import { red, purple } from "@mui/material/colors";
+import { useEffect, useMemo, useState } from "react";
+import AppRoutes from "./routes/AppRoutes";
 import {
-  ThemeProvider,
   createTheme,
   CssBaseline,
+  ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Step2 from "./layouts/learning-screens/step2";
-import Step1 from "./layouts/learning-screens/step1";
-import { purple, red } from "@mui/material/colors";
 
 function App() {
-  // システムのデフォルトテーマを確認
-  const systemPrefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [isDarkMode, setIsDarkMode] = useState(prefersDarkMode);
 
-  // ユーザーによるテーマの切り替えを管理
-  const [userTheme, setUserTheme] = useState<"light" | "dark" | null>(null);
-
-  // ページ読み込み時に localStorage からテーマを読み込み
+  // 起動時はOSの設定に合わせる
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light" || savedTheme === "dark") {
-      setUserTheme(savedTheme);
-    }
-  }, []);
+    setIsDarkMode(prefersDarkMode);
+  }, [prefersDarkMode]);
 
-  // テーマを切り替える関数
+  // テーマの切り替え
   const toggleTheme = () => {
-    const newTheme = userTheme === "dark" ? "light" : "dark";
-    setUserTheme(newTheme);
-    localStorage.setItem("theme", newTheme); // テーマ状態を保存
+    setIsDarkMode((prevMode) => !prevMode);
   };
 
-  // 使用するテーマを決定（ユーザー設定があればそれを優先、なければシステム設定）
-  const prefersDarkMode =
-    userTheme !== null ? userTheme === "dark" : systemPrefersDarkMode;
-
-  // テーマの生成
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
-          mode: prefersDarkMode ? "dark" : "light",
+          mode: isDarkMode ? "dark" : "light",
           primary: red,
           secondary: purple,
         },
       }),
-    [prefersDarkMode]
+    [isDarkMode]
   );
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* ヘッダー */}
-      <Header onToggleTheme={toggleTheme} isDarkMode={prefersDarkMode} />
-      {/* コンテンツ */}
-      <Step2 />
+      <Header onToggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+      <AppRoutes />
+      <Footer />
     </ThemeProvider>
   );
 }

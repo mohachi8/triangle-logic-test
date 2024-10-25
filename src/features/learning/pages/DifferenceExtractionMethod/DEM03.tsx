@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import LabeledTriangle from "../../../components/LabeledTriangle";
+import LabeledTriangle from "../../../../components/LabeledTriangle";
 
 function Step3() {
   return (

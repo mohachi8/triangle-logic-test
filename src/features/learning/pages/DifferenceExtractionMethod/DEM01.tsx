@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
-import ArgBox from "../components/ArgBox";
-import ProblemBox from "../components/ProblemBox";
-import PropositionBox from "../components/PropositionBox";
+import ArgBox from "../../components/ArgBox";
+import ProblemBox from "../../components/ProblemBox";
+import PropositionBox from "../../components/PropositionBox";
 
-function Step1() {
+function DEM01() {
   // 論証
   const argumentation: string =
-    "「ダイヤモンドは高価である．宝石は高価なのでダイヤモンドは宝石である．」";
+    "「ダイヤモンドは高価である．したがってダイヤモンドは宝石である．なぜならば宝石は高価だからである．」";
 
   // 問題
   const step: number = 1;
@@ -76,4 +76,4 @@ function Step1() {
   );
 }
 
-export default Step1;
+export default DEM01;
