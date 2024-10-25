@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import ArgBox from "../../components/ArgBox";
 import ProblemBox from "../../components/ProblemBox";
-import PropositionBox from "../../components/PropositionBox";
+import PropositionBox from "../../components/ExtractPropositionBox";
 
-function DEM01() {
+function Step01LFD() {
   // 論証
   const argumentation: string =
     "「ダイヤモンドは高価である．したがってダイヤモンドは宝石である．なぜならば宝石は高価だからである．」";
@@ -20,11 +20,6 @@ function DEM01() {
     { value: 50, label: "高価である" },
     { value: 60, label: "高価でない" },
   ];
-
-  const handleClick = () => {
-    console.log("次へボタンがクリックされました");
-    // ここに次のステップへの処理を追加
-  };
 
   return (
     <div>
@@ -63,7 +58,7 @@ function DEM01() {
           <Button
             variant="contained"
             color="primary"
-            onClick={handleClick}
+            href="/lfd02"
             sx={{
               width: "fit-content",
             }}
@@ -76,4 +71,4 @@ function DEM01() {
   );
 }
 
-export default DEM01;
+export default Step01LFD;
