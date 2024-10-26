@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import ArgBox from "../../components/ArgBox";
 import ProblemBox from "../../components/ProblemBox";
-import PropositionBox from "../../components/ExtractPropositionBox";
+import ExtractPropositionCard from "../../components/ExtractPropositionCard";
 
 function Step01LFD() {
   // 論証
@@ -47,19 +47,20 @@ function Step01LFD() {
 
           {/* 命題の組み立て */}
           {/* 命題1 */}
-          <PropositionBox items={options} />
+          <ExtractPropositionCard items={options} />
 
           {/* 命題2 */}
-          <PropositionBox items={options} />
+          <ExtractPropositionCard items={options} />
 
           {/* 命題3 */}
-          <PropositionBox items={options} />
+          <ExtractPropositionCard items={options} />
 
           <Button
             variant="contained"
             color="primary"
             href="/lfd02"
             sx={{
+              margin: 2,
               width: "fit-content",
             }}
           >

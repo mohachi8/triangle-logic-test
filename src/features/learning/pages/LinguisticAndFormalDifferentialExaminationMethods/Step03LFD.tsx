@@ -1,5 +1,5 @@
 import { Box, Button } from "@mui/material";
-import LabeledTriangle from "../../../../components/LabeledTriangle";
+import LabeledTriangle from "../../components/LabeledTriangle";
 import ArgBox from "../../components/ArgBox";
 import ProblemBox from "../../components/ProblemBox";
 import PropositionBox from "../../components/PropositionBox";

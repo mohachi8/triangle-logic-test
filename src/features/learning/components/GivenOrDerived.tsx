@@ -3,8 +3,9 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Box,
   Typography,
+  Card,
+  CardContent,
 } from "@mui/material";
 import React from "react";
 
@@ -18,21 +19,19 @@ function GivenOrDerived({ proposition }: { proposition: string }) {
   };
 
   return (
-    <div>
-      <Box
+    <Card
+      sx={{
+        margin: 1,
+      }}
+    >
+      <CardContent
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "8px",
-          margin: "8px",
-          border: "1px solid #ccc",
-          borderRadius: "5px",
         }}
       >
-        <Typography variant="h6" component="div">
-          {proposition}
-        </Typography>
+        <Typography>{proposition}</Typography>
 
         <FormControl variant="outlined" sx={{ minWidth: 120, marginRight: 2 }}>
           <InputLabel>選択</InputLabel>
@@ -44,8 +43,8 @@ function GivenOrDerived({ proposition }: { proposition: string }) {
             <MenuItem value={20}>導出命題</MenuItem>
           </Select>
         </FormControl>
-      </Box>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
 

@@ -54,7 +54,7 @@ function Step02LFD() {
             sx={{
               display: "flex",
               justifyContent: "space-between",
-              padding: "16px",
+              margin: 2,
             }}
           >
             {/* 戻るボタン */}
