@@ -5,16 +5,10 @@ function ArgBox({ argumentation }: { argumentation: string }) {
   return (
     <Box
       sx={{
-        // border: "1px solid black",
-        padding: "16px",
-        // margin: "16px",
+        padding: 2,
       }}
     >
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{ flexGrow: 1, fontWeight: "bold" }}
-      >
+      <Typography component="div" sx={{ flexGrow: 1, fontWeight: "bold" }}>
         {argumentation}
       </Typography>
     </Box>

@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Paper, Stack } from "@mui/material";
 import LabeledTriangle from "../../components/LabeledTriangle";
 import ArgBox from "../../components/ArgBox";
 import ProblemBox from "../../components/ProblemBox";
@@ -33,7 +33,6 @@ function Step03LFD() {
         >
           <div
             style={{
-              // background: "blue",
               display: "flex",
               flexDirection: "column",
               padding: "20px",
@@ -42,35 +41,41 @@ function Step03LFD() {
             {/* 論証 */}
             <ArgBox argumentation={argumentation} />
 
-            {/* 所与命題と導出命題の分類 */}
-            {/* 命題1 */}
-            <PropositionBox proposition={proposition1} />
+            <LabeledTriangle sizeVW={10} color="#808080" />
 
-            {/* 命題2 */}
-            <PropositionBox proposition={proposition2} />
+            {/* 命題 */}
+            <Paper sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "16px",
+            }}>
+              <Stack spacing={1}>
+              {/* 命題1 */}
+              <PropositionBox proposition={proposition1} />
+              {/* 命題2 */}
+              <PropositionBox proposition={proposition2} />
+              {/* 命題3 */}
+              <PropositionBox proposition={proposition3} />
+              </Stack>
+            </Paper>
+            <Box sx={{ p: 2 }} />
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            {/* 戻るボタン */}
+            <Button variant="contained" color="primary" href="/lfd02">
+              ← もどる
+            </Button>
 
-            {/* 命題3 */}
-            <PropositionBox proposition={proposition3} />
-
-            <LabeledTriangle sizeVW={40} color="#808080" />
-
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: "16px",
-              }}
-            >
-              {/* 戻るボタン */}
-              <Button variant="contained" color="primary" href="/lfd02">
-                ← もどる
-              </Button>
-
-              {/* 次へボタン */}
-              <Button variant="contained" color="primary" href="/lfd03">
-                次へ →
-              </Button>
-            </Box>
+            {/* 次へボタン */}
+            <Button variant="contained" color="primary" href="/lfd03">
+              次へ →
+            </Button>
+          </Box>
           </div>
         </div>
       </div>

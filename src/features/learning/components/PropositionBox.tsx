@@ -1,16 +1,15 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 
 function PropositionBox({ proposition }: { proposition: string }) {
   return (
-    <Card
+    <Paper
+      elevation={3}
       sx={{
-        margin: 1,
+        p: 1,
       }}
     >
-      <CardContent>
-        <Typography>{proposition}</Typography>
-      </CardContent>
-    </Card>
+      <Typography>{proposition}</Typography>
+    </Paper>
   );
 }
 

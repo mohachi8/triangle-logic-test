@@ -1,12 +1,10 @@
 import {
-  Card,
-  CardContent,
   FormControl,
   InputLabel,
   MenuItem,
+  Paper,
   Select,
   Typography,
-  //   useTheme,
 } from "@mui/material";
 import React from "react";
 
@@ -32,56 +30,48 @@ function ExtractPropositionCard({
   };
 
   return (
-    <Card
+    <Paper
+      elevation={3}
       sx={{
-        margin: 1,
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
         width: "fit-content",
+        p: 1,
       }}
     >
-      <CardContent
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          flexWrap: "wrap", // 横幅がはみ出た場合に折り返す
-        }}
-      >
-        {/* 前件を選択 */}
-        <FormControl variant="outlined" sx={{ minWidth: 120, marginRight: 2, marginBottom: { xs: 2, sm: 0 } }}>
-          <InputLabel>選択</InputLabel>
-          <Select value={firstValue} onChange={handleFirstChange} label="命題1">
-            <MenuItem value="">
-              <em>--</em>
+      {/* 前件を選択 */}
+      <FormControl variant="outlined" sx={{ minWidth: 120, margin: 1 }}>
+        <InputLabel>選択</InputLabel>
+        <Select value={firstValue} onChange={handleFirstChange} label="命題1">
+          <MenuItem value="">
+            <em>--</em>
+          </MenuItem>
+          {items.map((item) => (
+            <MenuItem key={item.value} value={item.value}>
+              {item.label}
             </MenuItem>
-            {items.map((item) => (
-              <MenuItem key={item.value} value={item.value}>
-                {item.label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+          ))}
+        </Select>
+      </FormControl>
 
-        <Typography sx={{ marginX: 2, marginBottom: { xs: 2, sm: 0 } }}>ならば</Typography>
+      <Typography sx={{ margin: 1 }}>ならば</Typography>
 
-        {/* 後件を選択 */}
-        <FormControl variant="outlined" sx={{ minWidth: 120, marginLeft: 2 }}>
-          <InputLabel>選択</InputLabel>
-          <Select
-            value={secondValue}
-            onChange={handleSecondChange}
-            label="命題2"
-          >
-            <MenuItem value="">
-              <em>--</em>
+      {/* 後件を選択 */}
+      <FormControl variant="outlined" sx={{ minWidth: 120, margin: 1 }}>
+        <InputLabel>選択</InputLabel>
+        <Select value={secondValue} onChange={handleSecondChange} label="命題2">
+          <MenuItem value="">
+            <em>--</em>
+          </MenuItem>
+          {items.map((item) => (
+            <MenuItem key={item.value} value={item.value}>
+              {item.label}
             </MenuItem>
-            {items.map((item) => (
-              <MenuItem key={item.value} value={item.value}>
-                {item.label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </CardContent>
-    </Card>
+          ))}
+        </Select>
+      </FormControl>
+    </Paper>
   );
 }
 

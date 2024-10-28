@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
 import ArgBox from "../../components/ArgBox";
 import GivenOrDerived from "../../components/GivenOrDerived";
 import ProblemBox from "../../components/ProblemBox";
@@ -41,20 +41,21 @@ function Step02LFD() {
           <ArgBox argumentation={argumentation} />
 
           {/* 所与命題と導出命題の分類 */}
-          {/* 命題1 */}
-          <GivenOrDerived proposition={proposition1} />
+          <Stack spacing={2}>
+            {/* 命題1 */}
+            <GivenOrDerived proposition={proposition1} />
 
-          {/* 命題2 */}
-          <GivenOrDerived proposition={proposition2} />
+            {/* 命題2 */}
+            <GivenOrDerived proposition={proposition2} />
 
-          {/* 命題3 */}
-          <GivenOrDerived proposition={proposition3} />
-
+            {/* 命題3 */}
+            <GivenOrDerived proposition={proposition3} />
+          </Stack>
+          <Box sx={{ p: 2 }} />
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
-              margin: 2,
             }}
           >
             {/* 戻るボタン */}

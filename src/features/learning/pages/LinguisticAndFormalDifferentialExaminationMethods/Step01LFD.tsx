@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
 import ArgBox from "../../components/ArgBox";
 import ProblemBox from "../../components/ProblemBox";
 import ExtractPropositionCard from "../../components/ExtractPropositionCard";
@@ -22,7 +22,7 @@ function Step01LFD() {
   ];
 
   return (
-    <div>
+    <>
       {/* 問題文 */}
       <ProblemBox step={step} sentence={sentence} />
       <div
@@ -46,29 +46,40 @@ function Step01LFD() {
           <ArgBox argumentation={argumentation} />
 
           {/* 命題の組み立て */}
-          {/* 命題1 */}
-          <ExtractPropositionCard items={options} />
-
-          {/* 命題2 */}
-          <ExtractPropositionCard items={options} />
-
-          {/* 命題3 */}
-          <ExtractPropositionCard items={options} />
-
-          <Button
-            variant="contained"
-            color="primary"
-            href="/lfd02"
+          <Stack
+            spacing={2}
             sx={{
-              margin: 2,
-              width: "fit-content",
+              alignItems: "center",
             }}
           >
-            次へ
-          </Button>
+            {/* 命題1 */}
+            <ExtractPropositionCard items={options} />
+
+            {/* 命題2 */}
+            <ExtractPropositionCard items={options} />
+
+            {/* 命題3 */}
+            <ExtractPropositionCard items={options} />
+          </Stack>
+
+          <Box sx={{ p: 2 }} />
+          <Box
+            sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              href="/lfd02"
+              sx={{
+                width: "fit-content",
+              }}
+            >
+              次へ →
+            </Button>
+          </Box>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
