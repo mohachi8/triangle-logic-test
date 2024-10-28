@@ -4,11 +4,11 @@ import Triangle from './Triangle';
 import LabeledCard from './LabeledCard';
 
 interface LabeledTriangleProps {
-  sizeVW: number; // 三角形の大きさ
+  sizePX: number; // 三角形の大きさ
   color: string; // 三角形のカラー
 }
 
-const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
+const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizePX, color }) => {
   return (
     <Box
       sx={{
@@ -16,8 +16,8 @@ const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
-        height: `calc(${sizeVW}vw + 100px)`, // 三角形の高さより少し大きく設定
+        width: "300px",
+        height: `${sizePX + 100}px`, // 三角形の高さより少し大きく設定
         overflow: "hidden",
       }}
     >
@@ -25,34 +25,33 @@ const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
       <Box
         sx={{
           position: "relative",
-          width: `${sizeVW}vw`,
-          height: `${sizeVW}vw`,
+          width: `${sizePX}px`,
+          height: `${sizePX}px`,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
         {/* 三角形の描画 */}
-        <Triangle sizeVW={sizeVW} color={color} />
+        <Triangle sizePX={sizePX} color={color} />
 
         {/* 上頂点のカード */}
         <LabeledCard
           text="結論"
           positionStyles={{
-            top: `-${sizeVW / 20}vw`,
+            top: `-${sizePX / 20}px`,
             left: '50%',
             transform: 'translate(-50%, -50%)',
           }}
           backgroundColor="#2196f3" // 青色の背景
-
         />
 
         {/* 左下頂点のカード */}
         <LabeledCard
           text="根拠"
           positionStyles={{
-            bottom: `-${sizeVW / 20}vw`,
-            left: `calc(50% - ${sizeVW / 2}vw)`,
+            bottom: `-${sizePX / 20}px`,
+            left: `calc(50% - ${sizePX / 2}px)`,
             transform: 'translate(-50%, 50%)',
           }}
           backgroundColor="#f44336" // 赤色の背景
@@ -62,8 +61,8 @@ const LabeledTriangle: React.FC<LabeledTriangleProps> = ({ sizeVW, color }) => {
         <LabeledCard
           text="論拠"
           positionStyles={{
-            bottom: `-${sizeVW / 20}vw`,
-            right: `calc(50% - ${sizeVW / 2}vw)`,
+            bottom: `-${sizePX / 20}px`,
+            right: `calc(50% - ${sizePX / 2}px)`,
             transform: 'translate(50%, 50%)',
           }}
           backgroundColor="#4caf50" // 緑色の背景
