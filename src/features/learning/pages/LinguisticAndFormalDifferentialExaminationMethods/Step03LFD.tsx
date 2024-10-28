@@ -32,10 +32,7 @@ function Step03LFD() {
   });
 
   // ドロップ処理
-  const handleDragEnd = (event: {
-    active: { id: string };
-    over: { id: string } | null;
-  }) => {
+  const handleDragEnd = (event: import("@dnd-kit/core").DragEndEvent) => {
     const { active, over } = event;
     if (over) {
       const proposition = propositions.find((p) => p.id === active.id);
